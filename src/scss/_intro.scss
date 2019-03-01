@@ -1,0 +1,174 @@
+.intro {
+    background-color: $color-main;
+    overflow: hidden;        
+    &__inner {
+        padding-top: 143px;  
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;  
+        margin-block-end: 50px; 
+    }
+    &__top {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 50px; 
+    }
+    &__preview {
+        margin-bottom: 15px;
+        @include txt(18px, $color-txt, 24px, $lato-semibold);   
+    }
+    &__title {
+        margin-bottom: 53px;
+        @include txt(24px, $color-primary, 24px, $lato-semibold);
+        font-weight: 600;
+        letter-spacing: 2.4px;
+        text-transform: uppercase; 
+        position: relative;
+    }
+    &__title::after {
+      content: '';
+      position: absolute;
+      bottom: -24px;   
+      right: 50%;
+      transform: translateX(50%);
+      width: 30px;
+      height: 2px;
+      background-color: $color-border;
+    }
+    &__subtitle {
+        @include txt(14px, $color-txt, 24px, $lato-semibold);
+        max-width: 450px; 
+        text-align: center;
+    }
+}
+
+.tabs {  
+    width: 775px;   
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    box-shadow: 0 0 51px 0 rgba(0, 0, 0, 0.08);
+    position: relative;  
+    &__inner {
+        position: relative;
+        z-index: 10;
+        background-color: $color-main;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; 
+        border-radius: 10px;
+    }
+    &__caption { 
+        display: flex; 
+        margin-bottom: 37px; 
+        cursor: pointer; 
+        border-radius: 10px 10px 0 0;
+        position: relative;
+    }
+    &__title {
+        width: 50%;
+        text-align: center; 
+        padding: 34px 0 30px 0;  
+        text-transform: uppercase;
+        letter-spacing: 0.4;
+        @include txt (16px, $color-main, 32px, $lato-semibold);
+        background-color: $color-primary;  
+        border-radius: 10px 0 10px 0; 
+        &--active {
+            color: $color-tabs; 
+            background-color: $color-main;
+        }
+    }
+    &__title:last-of-type {   
+        border-radius: 0 10px 0 10px; 
+    }
+    &__content { 
+        display: none; 
+        flex-direction: column;
+        justify-content: flex-start;  
+        padding: 0 81px; 
+        &-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;  
+        }
+        &-title {
+         @include txt(17px, $color-txt, 25.5px, $lato-regular); 
+         margin-bottom: 34px;  
+        }
+        &-subtitle {
+         @include txt(19px, $color-txt, 25.5px, $lato-light);
+         margin-bottom: 18px;   
+        }
+        &-subtitle:last-of-type {
+         margin-bottom: 48px;  
+        }
+        &-main {
+         margin-bottom: 30px;
+         @include txt (20px, $color-txt, 25.5px, $lato-bold);
+        }
+        &-info {
+         @include txt(18px, $color-txt, 25.5px, $lato-light);
+         margin-bottom: 30px;
+        }
+        &--active {
+            display: flex;
+        }
+    }
+    
+}  
+
+@media (max-width: $lg) {
+    .tabs {
+        width: 100%;  
+        &__title {
+          padding: 24px 0 20px 0;
+        }
+        &__img {
+            display: none; 
+        } 
+    }
+}
+@media (max-width: $md) {
+    .tabs {
+        &__content {   
+            padding: 0 15px;   
+            &-subtitle {
+                padding-left: 15px; 
+            }
+        }
+    }
+}
+@media (max-width: $sm) {
+    .intro {
+        &__inner {
+            padding-top: 50px;
+        }
+    }
+    .tabs {
+        &__content {  
+            &-title {
+                font-size: 14px;
+                margin-left: 0; 
+            }
+            &-subtitle {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                font-size: 16px;
+            }
+            &-box {
+                align-items: flex-start;
+            }
+        }
+        &__title {
+            padding: 14px 0 10px 0; 
+            font-size: 14px;
+        }
+    }
+    .dots {
+        display: none;
+    }
+}
